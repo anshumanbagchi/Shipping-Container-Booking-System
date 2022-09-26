@@ -1,0 +1,43 @@
+INSTALL NOTES
+
+
+-To install mySQL:
+    - run command - sudo wget https://dev.mysql.com/get/mysql-apt-config_0.8.23-1_all.deb
+    - run command - sudo dpkg -i mysql-apt-config_0.8.23-1_all.deb
+        - go through mysql-apt-config GUI
+    - run command - sudo apt install mysql-server
+        - go through mysql-community-server Install GUI
+        - Configure root pwd
+    - check status of mysql service - sudo service mysql status
+    - log into root user of DB - sudo mysql -u root -p
+        -supply root password
+    - create admin user - CREATE USER 'GTE-shipping-container-app'@'localhost' IDENTIFIED BY 'GTE';
+    - grant all rights -  GRANT ALL PRIVILEGES ON *.* TO 'GTE-shipping-container-app'@'localhost';
+    - exit from root user - exit
+    - log on using GTE-shipping-container-app user - sudo mysql -u GTE-shipping-container-app -p
+    - check the port -  SHOW GLOBAL VARIABLES LIKE 'PORT';
+
+-To install Postman:
+    - run command - sudo snap install postman (will need to have snap package manager installed)
+
+-To install Docker:
+    - Update the apt package index and install packages to allow apt to use a repository over HTTPS
+        - run command - sudo apt-get install ca-certificates curl gnupg lsb-release    
+    - Add Docker’s official GPG key
+        - run command - sudo mkdir -p /etc/apt/keyrings
+        - run command - curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+        - run command - sudo apt-key add docker.gpg
+        - run command to check docker public key in apt repo - gpg --keyid-format 0xlong docker.gpg 2>/dev/null
+        - add Docker repository to apt’s sources.list - run command - echo "deb [arch=amd64] https://download.docker.com/linux/debian bullseye stable" | sudo tee /etc/apt/sources.list.d/docker.list
+    - Refresh apt package list - run command - sudo apt update
+    - Simulate to check docker installation - run command - sudo apt --simulate install docker-ce
+    - Install docker - run command - sudo apt install docker-ce
+
+-To install git bash
+    - run command - sudo apt-get install git 
+ 
+- To build the server-side code:
+    - Install MySQL, postman, docker
+    - clone code from git
+    - navigate to git repo clone location
+    - run docker image (docker image doesnt run currently as I have not figured out how to create a connection to localhost db)

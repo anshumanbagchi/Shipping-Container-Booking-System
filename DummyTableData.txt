@@ -1,0 +1,75 @@
+const users = [{
+              userName: "maxVerstappen",
+              email: "maxVerstappen@RedBullRacing.com"
+            },
+            {
+              userName: "christianHorner",
+              email: "christianHorner@RedBullRacing.com"
+            },
+            {
+              userName: "segioPerez",
+              email: "segioPerez@RedBullRacing.com"
+            },
+            {
+              userName: "lewisHamilton",
+              email: "lewisHamilton@MercedesAMGPetronas.com"
+            },
+            {
+              userName: "georgeRussel",
+              email: "georgeRussel@MercedesAMGPetronas.com"
+            }];
+
+const ships = [{
+              origin: "ATL",
+              dest: "PEK",
+              timeTaken: 26,
+              capacity: 30
+            },
+            {
+              origin: "ORD",
+              dest: "ATL",
+              timeTaken: 21,
+              capacity: 50
+            },
+            {
+              origin: "PEK",
+              dest: "ORD",
+              timeTaken: 28,
+              capacity: 50
+            },
+            {
+              origin: "LHR",
+              dest: "ORD",
+              timeTaken: 23,
+              capacity: 30
+            },
+            {
+              origin: "ORD",
+              dest: "PEK",
+              timeTaken: 32,
+              capacity: 40
+            },
+            {
+              origin: "FRA",
+              dest: "LHR",
+              timeTaken: 16,
+              capacity: 30
+            },
+            {
+              origin: "LHR",
+              dest: "FRA",
+              timeTaken: 12,
+              capacity: 25
+            },
+            {
+              origin: "FRA",
+              dest: "ORD",
+              timeTaken: 45,
+              capacity: 35
+            },
+            {
+              origin: "FRA",
+              dest: "LHR",
+              timeTaken: 30,
+              capacity: 50
+            }]
