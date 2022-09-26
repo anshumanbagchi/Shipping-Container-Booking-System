@@ -41,3 +41,7 @@ INSTALL NOTES
     - clone code from git
     - navigate to git repo clone location
     - run docker image (docker image doesnt run currently as I have not figured out how to create a connection to localhost db)
+    - If docker image doesn't run - run the following commands
+        npm install - install all node dependencies
+        npm run dev - custom tag added in package.json for running the development server (npx nodemon app.js)
+        Check http://localhost:5000/ from a browser for server status

@@ -35,7 +35,7 @@ Basic Entities:
 
 Use Cases and Routes:
     1. Add user (/user/add/)
-    2. Remove user (/user/remove/{id})
+    2. Remove user (/user/remove/)
     3. Edit user (/user/edit/)
     4. Add ship (/ship/add/)
     5. Edit ship (/ship/edit/)
@@ -47,6 +47,7 @@ Use Cases and Routes:
     11. Remove booking from ship () (/book/remove/)
     12. Search Ship - based on shipID, origin or dest (/search/ship)
     13. Search Bookings - based on userID or shipID (/search/book)
+    14. Server Status (/)
    
 Currently implemented validations:
     1. Add user (/user/add/)
@@ -94,7 +95,9 @@ Currently implemented validations:
     13. Search Bookings - based on userID or shipID (/search/book)
 		- Allows only 1 field in request body - shipID, userID
     	- Checks if field provided in request body is exactly - shipID, userID
+        - Checks if user/ship is present in the respective tables
     	- Checks to see if any ships present, otherwise displays custom 'No bookings found' message.
 
 All APIs have been tested for happy paths as well as the validations using Postman and details can be found in ./PostmanRequests
 I have included the .env file in the git upload for reference. I have only ignored ./node_modules in the git commit.
+All APIs return valid HTTP status codes.

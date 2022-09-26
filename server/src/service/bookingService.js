@@ -256,18 +256,31 @@ function viewAllBookingService(res) {
 function searchBookByUserID(res, userID) {
   try {
     conn.query(
-      "SELECT * FROM BOOKING_TB WHERE userID = ?",
+      "SELECT COUNT(*) AS cnt FROM USER_TB WHERE userID = ?",
       userID,
       (err, result) => {
         if (err) {
           throw err;
         }
-        if (result.length < 1) {
-          res
-            .status(400)
-            .json("UserID " + userID + " has no bookings currently!");
+        if (result[0].cnt < 1) {
+          res.status(400).json("Invalid userID. Not present in User TB");
         } else {
-          res.status(200).json(result);
+          conn.query(
+            "SELECT * FROM BOOKING_TB WHERE userID = ?",
+            userID,
+            (err, result) => {
+              if (err) {
+                throw err;
+              }
+              if (result.length < 1) {
+                res
+                  .status(400)
+                  .json("UserID " + userID + " has no bookings currently!");
+              } else {
+                res.status(200).json(result);
+              }
+            }
+          );
         }
       }
     );
@@ -279,18 +292,31 @@ function searchBookByUserID(res, userID) {
 function searchBookByShipID(res, shipID) {
   try {
     conn.query(
-      "SELECT * FROM BOOKING_TB WHERE shipID = ?",
+      "SELECT COUNT(*) AS cnt FROM SHIP_TB WHERE shipID = ?",
       shipID,
       (err, result) => {
         if (err) {
           throw err;
         }
-        if (result.length < 1) {
-          res
-            .status(400)
-            .json("ShipID " + shipID + " has no bookings currently!");
+        if (result[0].cnt < 1) {
+          res.status(400).json("Invalid shipID. Not present in Ship TB");
         } else {
-          res.status(200).json(result);
+          conn.query(
+            "SELECT * FROM BOOKING_TB WHERE shipID = ?",
+            shipID,
+            (err, result) => {
+              if (err) {
+                throw err;
+              }
+              if (result.length < 1) {
+                res
+                  .status(400)
+                  .json("ShipID " + shipID + " has no bookings currently!");
+              } else {
+                res.status(200).json(result);
+              }
+            }
+          );
         }
       }
     );
