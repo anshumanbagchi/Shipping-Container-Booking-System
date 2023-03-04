@@ -1,6 +1,5 @@
 
 This is the readme file for the Container Ships Slot Booking System.
-It has been developed by Anshuman Bagchi for Greater Than Educational Technologies as part of the interview assignment.
 
 
 Planned Tech Stack:
